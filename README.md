@@ -1,10 +1,39 @@
 ## Requirements
 
-1. ```tensorflow==2.0.1```
-2. ```numpy==1.18.1```
-3. ```nmslib==2.0.6```
+* ```python==3.12```
+* ```tensorflow==2.16.1```
+* ```numpy==1.26.4```
+* ```nmslib==2.1.2```
 
 Further requirements are described in file ```requirements.txt```.
+
+## Environment setup
+Create a folder `etc` in your home directory and inside this folder create a virtual environment named `.venv` 
+by running the following commands in your terminal :
+```shell
+mkdir etc
+python3 -m venv etc/.venv
+```
+Activate the virtual environment by running the following command :
+```shell
+source etc/.venv/bin/activate
+pip install pip-tools
+pip-compile requirements.in
+pip install -r requirements.txt
+```
+Note that folder `etc` is not tracked by git.
+
+### Jupyter Lab Setup
+1. Configure jupyter to use the virtual environment that you have created as kernel
+```sh
+python -m ipykernel install --user --name etc/.venv --display-name "Python3.12 (IBRS)"
+```
+2. Launch Jupyter Lab with the command below and choose ```Python3.12 (IBRS)``` as the kernel
+```sh
+jupyter lab
+```
+
+# Image-Based Recommender System (IBRS)
 
 ## Idea behind IBRS
 
@@ -65,9 +94,9 @@ This recommendation process actually work on <a href="https://shoppinglist.cm/fr
     'imPath': 'images/Fashion Women/Women Hand Bag/DSC_0022_m9aphKf.jpg'
 }
 ```
-   - ```googlenet```: folder containing the downloaded googlenet model used for image features extraction.
-   - ```image_features``` : folder containing extracted features for all images of our database.
-   - ```nmslib index```: nmslib index (space of all image features) used to compute similarities between images.
+   - ```etc/googlenet```: folder containing the downloaded googlenet model used for image features extraction.
+   - ```etc/image_features``` : folder containing extracted features for all images of our database.
+   - ```etc/nmslib```: nmslib index (space of all image features) used to compute similarities between images.
 
 At the end of the computation process, item's metadata will have two more attributes : ```image_features``` (path to image features of the item) and ```IBSP``` (Image-Based Similar Products) which is the list of ID of the top-10 similar product.
 
@@ -92,4 +121,4 @@ At the end of the computation process, item's metadata will have two more attrib
 
 ## Authors
 
-[Carmel WENGA](https://www.linkedin.com/in/carmel-wenga-871876178/), Applied Machine Learning Research Engineer | <a href="https://shoppinglist.cm/">ShoppingList</a>, Nzhinusoft
+[Carmel WENGA](https://www.linkedin.com/in/carmel-wenga-871876178/), Applied Machine Learning Engineer | <a href="https://shoppinglist.cm/">ShoppingList</a>, Nzhinusoft
