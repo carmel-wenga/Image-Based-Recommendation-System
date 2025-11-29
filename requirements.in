@@ -1,0 +1,7 @@
+jupyter==1.1.1
+matplotlib==3.10.7
+nmslib==2.1.2
+numpy==1.26.4
+Pillow==12.0.0
+tensorflow==2.16.1
+tqdm==4.67.1
