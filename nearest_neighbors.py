@@ -12,11 +12,13 @@ import numpy as np
 import nmslib
 import os
 
+import settings
+
 class NearestNeighbors:
 
     def __init__(self):
-        self.index_name = "index.bin"
-        self.index_dir = "nmslib_index"
+        self.index_name = settings.ENV_NMSLIB_INDEX_NAME
+        self.index_dir = settings.ENV_NMSLIB_DIR
         self.index_path = os.path.join(self.index_dir, self.index_name)
 
     def create_nmslib_index(self, items, output_dir):
@@ -103,7 +105,7 @@ class NearestNeighbors:
         # save nearest neighbors of the current product by adding attribute IBSP to its metadata
         item['IBSP'] = nearest_neighbors
         
-        with open(os.path.join('items metadata', str(item['ID']) + '.json'), 'w') as out:
+        with open(os.path.join(settings.ENV_DATASET_METADATA_DIR, str(item['ID']) + '.json'), 'w') as out:
             json.dump(item, out)
 
     

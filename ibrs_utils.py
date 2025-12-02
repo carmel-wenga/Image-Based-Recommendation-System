@@ -6,13 +6,12 @@ For further details about these functions, please refer to the tutorial notebook
 
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
-import tarfile
 import zipfile
 import random
-import urllib
 import json
-import sys
 import os
+
+import settings
 
 
 def generate_database(metadata, folder):
@@ -60,7 +59,7 @@ def get_item(ID):
     :return item: dictionary of metadata of the corresponding product
     """
     
-    folder = 'items metadata'
+    folder = settings.ENV_DATASET_METADATA_DIR
     file_name = str(ID) + '.json'
     
     with open(os.path.join(folder, file_name),'r') as file:
@@ -75,7 +74,7 @@ def get_all_items():
     :return items: list of dictionaries of product's metadata
     """
     
-    folder = 'items metadata'
+    folder = settings.ENV_DATASET_METADATA_DIR
     items_path = os.listdir(folder)
     items = []
     
@@ -95,16 +94,16 @@ def visualize_random_items(items, n=50):
         - n : number of items to display. Default value = 50
     """
     # root folder where images data are stored
-    root = "dataset"
+    root = settings.ENV_DATASET_DIR
     
     # randomly choose 50 items of products
     random_items = random.choices(items, k=n)
     
-    # load images data of randomly choosed items
+    # load images data of randomly chose items
     images = []
     
     for item in random_items:
-        images.append(mpimg.imread(os.path.join(root, item['imPath'])))
+        images.append(mpimg.imread(os.path.join(str(root), item['imPath'])))
     
     # defining the grid
     cols = 10
@@ -131,13 +130,13 @@ def recommend_items(item):
     :param item: metadata of the product for which we wish to make recommendation
     """
     # root directory where images of products are saved
-    root = "dataset"
+    root = settings.ENV_DATASET_DIR
     
     # size of images in the grid
     fig = plt.figure(figsize = (16,3))
     
     # get image of the referenced product and display it in the matplotlib grid
-    img_ref_product = mpimg.imread(os.path.join(root, item['imPath']))
+    img_ref_product = mpimg.imread(os.path.join(str(root), item['imPath']))
     
     axis = []
     axis.append(fig.add_subplot(2,10,1))
@@ -169,8 +168,8 @@ def recommend_items(item):
 
     
 def unzip_data():
-    zip_data = "dataset.zip"
+    zip_data = settings.ENV_DATASET_ZIP_FILE
 
     print("[INFO] unzip the dataset ...")
     with zipfile.ZipFile(zip_data, 'r') as data:
-        data.extractall()
+        data.extractall(path=settings.ENV_ETC_DIR)

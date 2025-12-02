@@ -4,33 +4,29 @@ This python file define useful function to download and load the googlenet model
 For more details about these functions, please refer to the tutorial's notebook of this repository.
 """
 
-from PIL import Image
-from tqdm import tqdm
-
 import tensorflow as tf
-import numpy as np
 import tarfile
-import random
 import urllib
-import json
 import sys
 import os
+
+import settings
 
 class GoogLeNet:
 
     def __init__(self):
 
         # url to the googlenet model
-        self.model_url = "http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz"
+        self.model_url = settings.ENV_GOOGLENET_MODEL_URL
 
         # folder where to save the tar file to download
-        self.save_dir = "googlenet"
+        self.save_dir = settings.ENV_GOOGLENET_DIR
 
         # name of the downloaded file
-        self.name = "googlenet.tgz"
+        self.name = settings.ENV_GOOGLENET_ARCHIVE_MODEL_FILE
 
         # location of the model
-        self.model = "googlenet/classify_image_graph_def.pb"
+        self.model = settings.ENV_GOOGLENET_MODEL_GRAPH
 
 
     def download_googlenet(self):
@@ -42,7 +38,7 @@ class GoogLeNet:
         os.makedirs(self.save_dir, exist_ok=True)   
         
         # file path
-        fpath = os.path.join(self.save_dir, "googlenet.tgz")
+        fpath = os.path.join(self.save_dir, self.name)
         
         # define a progress function
         def _progress(count, block_size, total_size):
@@ -55,7 +51,8 @@ class GoogLeNet:
         print()
         statinfo = os.stat(fpath)
         print('Successfully downloaded', self.name, statinfo.st_size, 'bytes.')
-        tarfile.open(fpath, 'r:gz').extractall(self.save_dir)
+        with tarfile.open(fpath, 'r:gz') as tar:
+            tar.extractall(self.save_dir, filter='data')
 
     def load_model(self):
         """

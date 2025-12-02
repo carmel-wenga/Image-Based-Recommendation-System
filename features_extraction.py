@@ -13,12 +13,14 @@ import numpy as np
 import json
 import os
 
+import settings
+
 class FeaturesExtraction:
 
     def __init__(self):
 
         # output directory where to save extracted features
-        self.output_dir = "images_features"
+        self.output_dir = settings.ENV_IMAGE_FEATURES_DIR
 
     def extract_image_features(self, item, output_dir):
         """
@@ -30,13 +32,13 @@ class FeaturesExtraction:
         """
         
         # get the image path of the product
-        im_path = os.path.join('dataset', item['imPath'])
+        im_path = os.path.join(settings.ENV_DATASET_DIR, item['imPath'])
         
         # initialize image features to an empty list
         img_features = []
         
         try:
-            # open an preprocess image of the current product
+            # open and preprocess image of the current product
             img = Image.open(im_path)
             img = img.convert('RGB')
             img = np.array(img)
@@ -57,7 +59,7 @@ class FeaturesExtraction:
         # update metadata of this item by adding attribute 'image_features' to metadata of this product
         item['image_features'] = fpath
         
-        with open(os.path.join('items metadata', str(item['ID']) + '.json'), 'w') as out:
+        with open(os.path.join(settings.ENV_DATASET_METADATA_DIR, str(item['ID']) + '.json'), 'w') as out:
             json.dump(item, out)
 
     def extract_features(self, items):
