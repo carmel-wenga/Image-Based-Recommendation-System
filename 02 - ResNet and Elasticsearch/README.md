@@ -9,11 +9,21 @@
 ## Project Setup Instructions
 ```shell
 mkdir etc
-python3 -m venv etc/venv
-source etc/venv/bin/activate
+python3 -m venv etc/venv-02
+source etc/venv-02/bin/activate
 pip install pip-tools
 pip-compile requirements.in
 pip install -r requirements.txt
+```
+
+## Jupyter Lab Setup
+1. Configure jupyter to use the virtual environment that you have created as kernel
+```sh
+python -m ipykernel install --user --name IBRS-02 --display-name "Python3.12 (IBRS-02)"
+```
+2. Launch Jupyter Lab with the command below and choose ```Python3.12 (IBRS-02)``` as the kernel
+```sh
+jupyter lab
 ```
 
 ## Run Elasticsearch
