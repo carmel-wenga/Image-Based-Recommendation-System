@@ -12,11 +12,11 @@ Create a folder `etc` in your home directory and inside this folder create a vir
 by running the following commands in your terminal :
 ```shell
 mkdir etc
-python3 -m venv etc/.venv
+python3 -m venv etc/venv-01
 ```
 Activate the virtual environment by running the following command :
 ```shell
-source etc/.venv/bin/activate
+source etc/venv-01/bin/activate
 pip install pip-tools
 pip-compile requirements.in
 pip install -r requirements.txt
@@ -26,9 +26,9 @@ Note that folder `etc` is not tracked by git.
 ### Jupyter Lab Setup
 1. Configure jupyter to use the virtual environment that you have created as kernel
 ```sh
-python -m ipykernel install --user --name etc/.venv --display-name "Python3.12 (IBRS)"
+python -m ipykernel install --user --name venv-01 --display-name "Python3.12 (IBRS-01)"
 ```
-2. Launch Jupyter Lab with the command below and choose ```Python3.12 (IBRS)``` as the kernel
+2. Launch Jupyter Lab with the command below and choose ```Python3.12 (IBRS-01)``` as the kernel
 ```sh
 jupyter lab
 ```
@@ -121,4 +121,4 @@ At the end of the computation process, item's metadata will have two more attrib
 
 ## Authors
 
-[Carmel WENGA](https://www.linkedin.com/in/carmel-wenga-871876178/), Applied Machine Learning Engineer | <a href="https://shoppinglist.cm/">ShoppingList</a>, Nzhinusoft
+[Carmel WENGA](https://www.linkedin.com/in/carmel-wenga-871876178/), Applied Data & ML Engineer.

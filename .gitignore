@@ -1,4 +1,4 @@
-etc
-.ipynb_checkpoints
+*/etc
+*/.ipynb_checkpoints
 .idea
 __pycache__/
