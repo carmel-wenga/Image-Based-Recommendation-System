@@ -36,7 +36,7 @@ The `xpack.security.enabled=false` property is used to disable security for loca
 Elasticsearch with http://localhost:9200 without authentication.
 
 ## The Notebook
-The tutorial is implemented in the [IBRS_with_ResNet_and_ES.ipynb](./src/IBRS_with_ResNet_and_ES.ipynb) Jupyter Notebook.
+The tutorial is implemented in the [IBRS and Search Engine.ipynb](./src/IBRS and Search Engine.ipynb) Jupyter Notebook.
 
 ## Author
 Carmel WENGA, Data & ML Engineer
