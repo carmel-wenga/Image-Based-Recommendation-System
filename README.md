@@ -12,7 +12,7 @@ This project is structured into multiple directories, each focusing on a specifi
 recommendation systems using the GoogleNet model and MNSLIB for similarity search.
 * [02 - ResNet and Elasticsearch](./02%20-%20ResNet%20and%20Elasticsearch/README.md): Building IBRS using ResNet for 
 embedding extraction and Elasticsearch as vector database. This directory also introduces image-based search capabilities 
-and ways to improve recommendation quality.
+and ways to improve recommendation quality by applying image classification using the Gemini Multimodal API.
 
 # Medium Stories Related to this GitHub Repository
 1. [Building a Basic Image-Based Recommendation System](https://medium.com/codeelevation/building-a-basic-image-based-recommendation-system-ba9f08588df1)
