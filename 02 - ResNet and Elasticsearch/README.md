@@ -1,10 +1,21 @@
-# Build an Image-Based Recommendation System with ResNet, Elasticsearch, and Python
+# Build an Image-Based Recommendation System and Search Engine with ResNet, Elasticsearch, Python and Gemini
+
+Medium Story: [Building an Image-Based Recommendation System and Search Engine with Deep Learning and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-an-image-based-recommendation-system-and-search-engine-with-deep-learning-and-4bb96c4d9a64)
+
+This second part of the repository focuses on building an Image-Based Recommendation System (IBRS) using the ResNet 
+architecture for feature extraction and Elasticsearch as a vector database for storing and searching image embeddings. 
+
+The three main focus areas of this part are:
+1. Building an IBRS using ResNet and Elasticsearch,
+2. Implementing image-based search capabilities,
+3. Improving recommendation quality with image classification using the Gemini multimodal API
 
 ## Requirements
 * Python 3.12
 * Elasticsearch 9.1.8 via Docker
 * Elasticsearch Python Client 9.2.0
 * TensorFlow 2.16.1
+* google-genai==1.61.0
 
 ## Project Setup Instructions
 ```shell
@@ -37,6 +48,10 @@ Elasticsearch with http://localhost:9200 without authentication.
 
 ## The Notebook
 The tutorial is implemented in the [IBRS and Search Engine.ipynb](./src/IBRS and Search Engine.ipynb) Jupyter Notebook.
+
+## Related Medium Stories
+* [Building an Image-Based Recommendation System and Search Engine with Deep Learning and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-an-image-based-recommendation-system-and-search-engine-with-deep-learning-and-4bb96c4d9a64)
+
 
 ## Author
 Carmel WENGA, Data & ML Engineer
