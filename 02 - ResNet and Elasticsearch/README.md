@@ -52,7 +52,6 @@ The tutorial is implemented in the [IBRS and Search Engine.ipynb](./src/IBRS and
 ## Related Medium Stories
 * [Building an Image-Based Recommendation System and Search Engine with Deep Learning and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-an-image-based-recommendation-system-and-search-engine-with-deep-learning-and-4bb96c4d9a64)
 
-
 ## Author
 Carmel WENGA, Data & ML Engineer
 - [Medium](https://medium.com/@carmelwenga)
