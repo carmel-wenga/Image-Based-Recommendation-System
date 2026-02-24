@@ -1,6 +1,10 @@
 # Build an Image-Based Recommendation System and Search Engine with ResNet, Elasticsearch, Python and Gemini
 
-Medium Story: [Building an Image-Based Recommendation System and Search Engine with Deep Learning and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-an-image-based-recommendation-system-and-search-engine-with-deep-learning-and-4bb96c4d9a64)
+Related Medium Stories: 
+* [Building an Image-Based Recommendation System and Search Engine with Deep Learning and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-an-image-based-recommendation-system-and-search-engine-with-deep-learning-and-4bb96c4d9a64)
+* [Building a Smarter Image Search with Gemini and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-a-smarter-image-search-with-gemini-and-elasticsearch-90da55e907b1) 
+
+![image](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*eWn0O4yI82k_iEsUjcrbYw.png)
 
 This second part of the repository focuses on building an Image-Based Recommendation System (IBRS) using the ResNet 
 architecture for feature extraction and Elasticsearch as a vector database for storing and searching image embeddings. 
@@ -51,6 +55,7 @@ The tutorial is implemented in the [IBRS and Search Engine.ipynb](./src/IBRS and
 
 ## Related Medium Stories
 * [Building an Image-Based Recommendation System and Search Engine with Deep Learning and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-an-image-based-recommendation-system-and-search-engine-with-deep-learning-and-4bb96c4d9a64)
+* [Building a Smarter Image Search with Gemini and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-a-smarter-image-search-with-gemini-and-elasticsearch-90da55e907b1) 
 
 ## Author
 Carmel WENGA, Data & ML Engineer
