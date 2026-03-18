@@ -18,6 +18,7 @@ and ways to improve recommendation quality by applying image classification usin
 1. [Building a Basic Image-Based Recommendation System](https://medium.com/codeelevation/building-a-basic-image-based-recommendation-system-ba9f08588df1)
 2. [Building an Image-Based Recommendation System and Search Engine with Deep Learning and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-an-image-based-recommendation-system-and-search-engine-with-deep-learning-and-4bb96c4d9a64)
 3. [Building a Smarter Image Search with Gemini and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-a-smarter-image-search-with-gemini-and-elasticsearch-90da55e907b1) 
+4. [From ANN Libraries to Vector Databases](https://medium.com/towards-artificial-intelligence/from-ann-libraries-to-vector-databases-06ccda6d918b)
 
 # Author
 Carmel WENGA, Data & ML Engineer

@@ -1,4 +1,6 @@
+etc
 */etc
 */.ipynb_checkpoints
+.ipynb_checkpoints/
 .idea
 __pycache__/
