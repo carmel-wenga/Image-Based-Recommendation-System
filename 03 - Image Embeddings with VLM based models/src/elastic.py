@@ -1,63 +1,16 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
+from .settings import MODEL_FIELD_MAPPING
 
-# Map the model parameter to the correct Elasticsearch field
-MODEL_FIELD_MAPPING = {
-    "resnet": "image_features",
-    "siglip": "image_features_siglip",
-    "vertex_api": "image_features_vertex_api"
-}
-
-def create_index_with_mapping(es, index_name):
-    """
-    Creates the Elasticsearch index with mappings for all three types of embeddings.
-    """
-    mapping = {
-        "mappings": {
-            "properties": {
-                "image_features": { # ResNet50 (2048 dims)
-                    "type": "dense_vector",
-                    "dims": 2048,
-                    "index": True,
-                    "similarity": "cosine"
-                },
-                "image_features_siglip": { # SigLIP base patch16 224 (768 dims)
-                    "type": "dense_vector",
-                    "dims": 768,
-                    "index": True,
-                    "similarity": "cosine"
-                },
-                "image_features_vertex_api": { # Vertex AI Multimodal Embedding (1408 dims)
-                    "type": "dense_vector",
-                    "dims": 1408,
-                    "index": True,
-                    "similarity": "cosine"
-                },
-                "category": {
-                    "type": "keyword"
-                },
-                "imPath": {
-                    "type": "keyword"
-                }
-            }
-        }
-    }
-    
-    if not es.indices.exists(index=index_name):
-        es.indices.create(index=index_name, body=mapping)
-        print(f"[INFO] Index '{index_name}' created with mapping.")
-    else:
-        print(f"[INFO] Index '{index_name}' already exists.")
-
-def update_index_mapping(es, index_name, query):
+def update_index_mapping(es, index_name, body):
     """
     Updates the index mapping to add new fields if they don't exist.
 
     :param es: Elasticsearch client instance
     :param index_name: Name of the index
-    :param query: Mapping definition (body for put_mapping)
+    :param body: Mapping definition (body for put_mapping)
     """
-    es.indices.put_mapping(index=index_name, body=query)
+    es.indices.put_mapping(index=index_name, body=body)
     print(f"[INFO] Index '{index_name}' mapping updated.")
 
 
@@ -119,3 +72,36 @@ def knn_search(es, item_id, index_name, model="resnet", k=10, num_candidates=100
     res = es.search(index=index_name, query=knn_query)
     knn_items = res['hits']['hits']
     return ref_item, knn_items[1:]  # Exclude the reference item itself from the results
+
+
+def visual_search(
+    es: Elasticsearch,
+    src_vector: list,
+    index_name: str = "items",
+    model: str = "resnet",
+    k:int =10,
+    num_candidates:int = 100
+):
+    # build the knn query.
+    knn_query = {
+        "knn": {
+            "field": MODEL_FIELD_MAPPING.get(model),
+            "query_vector": src_vector,
+            "k": k,
+            "num_candidates": num_candidates
+        }
+    }
+
+    # execute the knn query
+    res = es.search(index=index_name, query=knn_query)
+    knn_results = res['hits']['hits']
+    return knn_results
+
+def search_and_display(
+    es: Elasticsearch,
+    index_name: str = "items",
+    model: str = "resnet",
+    k: int = 10,
+    num_candidates: int = 100
+):
+    pass

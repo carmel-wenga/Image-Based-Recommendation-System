@@ -13,6 +13,12 @@ recommendation systems using the GoogleNet model and MNSLIB for similarity searc
 * [02 - ResNet and Elasticsearch](./02%20-%20ResNet%20and%20Elasticsearch/README.md): Building IBRS using ResNet for 
 embedding extraction and Elasticsearch as vector database. This directory also introduces image-based search capabilities 
 and ways to improve recommendation quality by applying image classification using the Gemini Multimodal API.
+* [03 - Image Embeddings with VLM-based models](./03%20-%20Image%20Embeddings%20with%20VLM%20based%20models/README.md): 
+Improving the quality of image embeddings by using VLM-based models instead of ResNet. The directory explores two 
+different strategies to improve the quality of image embeddings: self-hosted model using the SigLIP model locally and 
+using the Vertex AI Multimodal Embedding API. Both extracted embeddings are stored in Elasticsearch along with the 
+ResNet embeddings, and the recommendation quality of the different approaches is compared. The impact of combining 
+* text and image embeddings on the recommendation quality is also explored.
 
 # Medium Stories Related to this GitHub Repository
 1. [Building a Basic Image-Based Recommendation System](https://medium.com/codeelevation/building-a-basic-image-based-recommendation-system-ba9f08588df1)

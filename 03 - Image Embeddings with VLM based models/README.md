@@ -6,7 +6,7 @@ In this third part, we will focus on improving the quality of image embeddings b
 ResNet. The goal here is to explor two different strategies to improve the quality of image embeddings:
 
 1. Self-hosted model: using the SigLIP model locally.
-2. Embedding API: using the Gemini Multimodal API.
+2. Embedding API: using the Vertex AI Multimodal Embedding API.
 
 Both extracted embeddings will be stored in Elasticsearch along with the ResNet embeddings. We will then compare the 
 recommendation quality of the different approaches.
