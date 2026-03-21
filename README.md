@@ -17,8 +17,7 @@ and ways to improve recommendation quality by applying image classification usin
 Improving the quality of image embeddings by using VLM-based models instead of ResNet. The directory explores two 
 different strategies to improve the quality of image embeddings: self-hosted model using the SigLIP model locally and 
 using the Vertex AI Multimodal Embedding API. Both extracted embeddings are stored in Elasticsearch along with the 
-ResNet embeddings, and the recommendation quality of the different approaches is compared. The impact of combining 
-* text and image embeddings on the recommendation quality is also explored.
+ResNet embeddings, and the recommendation quality of the different approaches is compared.
 
 # Medium Stories Related to this GitHub Repository
 1. [Building a Basic Image-Based Recommendation System](https://medium.com/codeelevation/building-a-basic-image-based-recommendation-system-ba9f08588df1)
