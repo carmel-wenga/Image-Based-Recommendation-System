@@ -24,6 +24,8 @@ ResNet embeddings, and the recommendation quality of the different approaches is
 2. [Building an Image-Based Recommendation System and Search Engine with Deep Learning and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-an-image-based-recommendation-system-and-search-engine-with-deep-learning-and-4bb96c4d9a64)
 3. [Building a Smarter Image Search with Gemini and Elasticsearch](https://medium.com/towards-artificial-intelligence/building-a-smarter-image-search-with-gemini-and-elasticsearch-90da55e907b1) 
 4. [From ANN Libraries to Vector Databases](https://medium.com/towards-artificial-intelligence/from-ann-libraries-to-vector-databases-06ccda6d918b)
+5. [Improving Visual Recommendations with Vision-Language Model Embeddings](https://medium.com/towards-artificial-intelligence/improving-visual-recommendation-with-vision-language-model-embeddings-f299dc744b23)
+
 
 # Author
 Carmel WENGA, Data & ML Engineer

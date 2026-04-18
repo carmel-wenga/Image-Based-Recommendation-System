@@ -32,3 +32,5 @@ python -m ipykernel install --user --name IBRS-03 --display-name "Python3.12 (IB
 ```sh
 jupyter lab
 ```
+## Related Medium Stories
+1. [Improving Visual Recommendations with Vision-Language Model Embeddings](https://medium.com/towards-artificial-intelligence/improving-visual-recommendation-with-vision-language-model-embeddings-f299dc744b23)
