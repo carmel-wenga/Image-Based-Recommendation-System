@@ -19,5 +19,5 @@ SRC_DIR = os.path.join(PROJECT_DIR, "src")
 MODEL_FIELD_MAPPING = {
     "resnet": "image_features",
     "siglip": "image_features_siglip",
-    "vertex_api": "image_features_vertex_api"
+    "gemini": "image_features_gemini"
 }

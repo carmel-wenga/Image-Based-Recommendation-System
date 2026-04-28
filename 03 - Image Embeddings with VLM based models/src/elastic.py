@@ -1,6 +1,9 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
-from .settings import MODEL_FIELD_MAPPING
+from .embeddings import ImageEmbeddingExtractor
+from .settings import MODEL_FIELD_MAPPING, DATASET_DIR
+
+import os
 
 def update_index_mapping(es, index_name, body):
     """
@@ -34,6 +37,46 @@ def bulk_update_embeddings(es, index_name, items, embeddings, model="resnet"):
 
     bulk(es, actions)
     print(f"[INFO] Updated {len(actions)} documents with {model} embeddings.")
+
+
+def extract_embeddings_and_update_es(
+    es: Elasticsearch,
+    embedding_extractor: ImageEmbeddingExtractor,
+    model: str = "resnet",
+    index_name: str = "items",
+    batch_size=128,
+    dataset_dir: str = DATASET_DIR,
+):
+    # query ES to get all the image path
+    query = {
+        "size": batch_size,
+        "query": {
+            "bool": {
+                "must_not": {
+                    "exists": {"field": MODEL_FIELD_MAPPING.get(model)}
+                }
+            }
+        }
+    }
+
+    response = es.search(index=index_name, body=query, scroll="5m")
+    scroll_id = response["_scroll_id"]
+
+    while True:
+        items = response["hits"]["hits"]
+
+        if not items:
+            break
+
+        # batch processing
+        paths = [os.path.join(dataset_dir, item["_source"]["imPath"]) for item in items]
+        embeddings = embedding_extractor.extract_embeddings(paths)
+        bulk_update_embeddings(es, index_name, items, embeddings, model)
+
+        # continue scrolling
+        response = es.scroll(scroll_id=scroll_id, scroll="5m")
+
+    print("DONE: all embeddings updated.")
 
 
 def knn_search(es, item_id, index_name, model="resnet", k=10, num_candidates=100, apply_filter=False):
