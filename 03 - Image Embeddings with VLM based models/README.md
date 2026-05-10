@@ -3,10 +3,10 @@
 In part two, we saw how to improve the recommendation quality by using Elasticsearch Filtered kNN.
 
 In this third part, we will focus on improving the quality of image embeddings by using VLM-based models instead of 
-ResNet. The goal here is to explor two different strategies to improve the quality of image embeddings:
+ResNet. The goal here is to explore two different strategies to improve the quality of image embeddings:
 
 1. Self-hosted model: using the SigLIP model locally.
-2. Embedding API: using the Vertex AI Multimodal Embedding API.
+2. Embedding API: using the Gemini Multimodal Embedding API, through Google AI Studio
 
 Both extracted embeddings will be stored in Elasticsearch along with the ResNet embeddings. We will then compare the 
 recommendation quality of the different approaches.
@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ```
 
 ## Jupyter Lab Setup
-1. Configure jupyter to use the virtual environment that you have created as kernel
+1. Configure Jupyter to use the virtual environment that you have created as a kernel
 ```sh
 python -m ipykernel install --user --name IBRS-03 --display-name "Python3.12 (IBRS-03)"
 ```

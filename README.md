@@ -1,4 +1,4 @@
-# Image-Based Recommendation System
+# Building Visual Recommendation Systems & Search Engines with Deep Learning, LLMs and Vector Databases
 
 ![image](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*BWisOFmpgid3NwahHne-RQ.png)
 
@@ -16,7 +16,7 @@ and ways to improve recommendation quality by applying image classification usin
 * [03 - Image Embeddings with VLM-based models](./03%20-%20Image%20Embeddings%20with%20VLM%20based%20models/README.md): 
 Improving the quality of image embeddings by using VLM-based models instead of ResNet. The directory explores two 
 different strategies to improve the quality of image embeddings: self-hosted model using the SigLIP model locally and 
-using the Vertex AI Multimodal Embedding API. Both extracted embeddings are stored in Elasticsearch along with the 
+using the Gemini Multimodal Embedding API via Google AI Studio. Both extracted embeddings are stored in Elasticsearch along with the 
 ResNet embeddings, and the recommendation quality of the different approaches is compared.
 
 # Medium Stories Related to this GitHub Repository
